@@ -10,7 +10,11 @@ MONGO_URI = os.getenv("MONGO_URI")
 DB_NAME = os.getenv("MONGO_DB", "fastapi_db")
 COLLECTION_NAME = os.getenv("MONGO_COLLECTION", "application_logs")
 
-client = MongoClient(MONGO_URI, tls=True)
+client = MongoClient(
+    MONGO_URI,
+    tls=True,
+    tlsAllowInvalidCertificates=False 
+ )
 db = client[DB_NAME]
 collection = db[COLLECTION_NAME]
 
