@@ -15,7 +15,7 @@ COLLECTION_NAME = os.getenv("MONGO_COLLECTION", "application_logs")
 # ----------------------
 # MongoDB client
 # ----------------------
-client = MongoClient(MONGO_URI)
+client = MongoClient(MONGO_URI, tls=True)
 db = client[DB_NAME]
 collection = db[COLLECTION_NAME]
 
